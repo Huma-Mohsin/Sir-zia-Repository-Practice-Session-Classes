@@ -1,6 +1,5 @@
-lett;
-message = "Hello World"; //syntax error
-console.log(message);
+//lett message = "Hello World";//syntax error
+//console.log(message);
 export {};
 //A syntax error is an error that occurs when the code written in a programming language (in this case, TypeScript) violates the language's rules and syntax. It's like a grammatical error in a sentence.
 // TypeScript has its own set of rules that define how code should be written, including things like:

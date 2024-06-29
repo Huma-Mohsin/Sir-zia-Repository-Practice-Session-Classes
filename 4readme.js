@@ -16,15 +16,15 @@ printId("202"); //accept string data
 //Working with union Types
 //TypeScript will only allow an operation if it is valid for every member of the union. For example, if you have the union string | number, you can’t use methods that are only available on string:
 function printId1(id) {
-    console.log(id.toUpperCase()); //ERROR________Property 'toUpperCase' does not exist on type 'string | number'.Property 'toUpperCase' does not exist on type 'number'.
+    //console.log(id.toUpperCase());//ERROR________Property 'toUpperCase' does not exist on type 'string | number'.Property 'toUpperCase' does not exist on type 'number'.
 }
 //printId1("pakistannnn")
 //The solution is to narrow the union with code, the same as you would in JavaScript without type annotations. Narrowing occurs when TypeScript can deduce a more specific type for a value based on the structure of the code.
 //For example, TypeScript knows that only a string value will have a typeof value "string":
 let name1 = 1234;
-console.log(typeof name1); //returns type
+console.log(typeof name1); //returns type-number
 let d = typeof name1;
-console.log(d);
+console.log(d); //number
 function printId2(id) {
     if (typeof id === "string") {
         // In this branch, id is of type 'string'
@@ -62,14 +62,18 @@ function getFirstThree(x) {
 console.log(getFirstThree([1, 2, 34, 6]));
 console.log(getFirstThree("typescript"));
 console.log(getFirstThree(["ali", "amna", "ayesha", "daniyal"]));
-//-----------------------------------------------------------
-//LITERALS TYPES
-let x = "hello";
+//-----------------------------------------------------------------
+//
+//LITERALS TYPES-// fixed datatype with its value.
+//const z:number;  //const' declarations must be initialized.
+let a;
+a = 67;
+const x = 9;
 // OK
-x = "hello";
+// x = 9;
 // ...
 //x = "howdy"; // Type '"howdy"' is not assignable to type '"hello"'.
-//-------------------------
+//---------------------------------------------
 // //Narrowing Types
 // Narrowing types in TypeScript refers to the process of refining a type to a more specific type based on certain conditions or checks. Here are some examples:
 // 1. Type Guards:
@@ -82,7 +86,7 @@ console.log(isString("america")); //true
 //------------------------------------------------------
 let xa = 'hello';
 if (isString(xa)) {
-    x.toUpperCase(); // x is now narrowed to string
+    xa.toUpperCase(); // x is now narrowed to string
 }
 console.log("line 101", xa); //hello
 console.log("line 102", isString("documented")); //true
@@ -91,7 +95,7 @@ console.log("line 103", isString(34)); //false
 //1. Control Flow Analysis:
 let x3 = 'hello';
 if (typeof x3 === 'string') {
-    x.toUpperCase(); // x is now narrowed to string
+    x3.toUpperCase(); // x is now narrowed to string
 }
 console.log("122 line", isString("shazia")); //true
 console.log("123 line", isString(56)); //false
