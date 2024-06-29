@@ -1,0 +1,29 @@
+export const a=[{
+        "name":"John",
+        "age": 30,
+        " occupation": "Developer",
+        "skills": ["JavaScript", "HTML", "CSS"],
+        "address": {
+          "street": "123 Main St",
+          "city": "Anytown",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "isAdmin": true,
+        "balance": 100.50,
+        "isNull": null
+      },
+      {
+        "address": {
+          "street": "123 Main St",
+          "city": "Anytown",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "isAdmin": true,
+        "balance": 100.50,
+        "isNull": null
+      }
+
+
+    ]
