@@ -8,13 +8,19 @@
 //Type:
 //In JavaScript, an array is also a type, specifically an object type. Yes, you read that right - an array is an object! This means that an array has properties and methods, just like objects do. The Array constructor creates an array object, and you can use the typeof operator to check its type:
 let arr1:any=[]
-console.log("Type of Array always return :",typeof arr1) // returns "object"
+console.log("Type of Array always return :",typeof arr1) // object
 
 // 1. Declaring an array: You can declare an array using square brackets [] or the Array constructor.
 
 // Example: 
-let myArray1 = [1, 2, 3]; //or 
-let myArray2 = new Array(1, 2, 3);// called array constructor.
+let myArray1:number[] = [1, 2, 3]; //or  square bracket
+console.log("line 17",typeof myArray1);
+
+let myArray2 = new Array(1, 2, 3);// called array constructor.[1,2,3]
+
+//add by method:
+let myArr3= Array.of(5,10,8);
+console.log(myArr3);//[5,10,8]; 
 
 // 1. Array elements: You can access and manipulate array elements using their index (position in the array).
 
@@ -28,10 +34,13 @@ console.log("Length of myArray1: ",myArray1.length);
  //returns 3.
 
 //1. Array spread: You can use the spread operator ... to create a new array from an existing one or to merge arrays.
+//spread operator always used in arrays , and their identification is that it is placed at start.
+
+
 
 //Example: 
 let newArray3 = [...myArray1, 4, 5]; //creates a new array with the elements of myArray and two additional elements.
-console.log("NewArray3: ",newArray3);
+console.log("NewArray3: ",newArray3);//[1,2,3,4,5]
 
 //Array concatenation: You can use the concat() method to merge arrays.
 
@@ -54,7 +63,7 @@ let [a2, ...rest] = [1, 2, 3, 4];
 console.log("Extract middle elements ",a2, rest); // Output: 1, [2, 3, 4]
 
 // Extract elements with default values
-let [a = 10, b = 20] = [1];  //"default value" assignment
+let [a = 10, b = 20,c1=22] = [1,3];  //"default value" assignment
 console.log("Extract elements with default values ",a, b); // Output: 1, 20
 
 //- a gets the value 1 from the array
@@ -91,7 +100,7 @@ let array3 : number[] = [];//correct syntax to define an empty array
 
 //To fix this, you can use the Array constructor function instead:
 let array4: number[] = new Array(2); // Creates a new array with a length of 2 using the new Array(2) constructor.
-console.log("before asigning values",array4);
+console.log("before asigning values",array4);//[a,b]
 
 //The resulting array4 variable is an empty array with a length of 2, waiting to be filled with values. For example:
 
@@ -122,13 +131,13 @@ let array_3 = new Array(5); // creates an array with length 5, all elements are 
 //1. Array.of():
 
 let array6 = Array.of(1, 2, 3, 4, 5); // creates an array with the given elements
-console.log("Array of method:" ,array6);
+console.log("Array of method:" ,array6);//[1,2,3,4,5]
 
 //Read me -Important Methods:
 
 //noImplicitAny:
 
-// When you don’t specify a type, and TypeScript can’t infer it from context, the compiler will typically default to any.
+// When you don’t specify a type, and TypeScript can’t infer it from context/values, the compiler will typically default to any.
 
 // You usually want to avoid this, though, because any isn’t type-checked. 
 

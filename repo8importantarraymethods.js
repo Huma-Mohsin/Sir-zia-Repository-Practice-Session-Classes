@@ -40,4 +40,18 @@ let filteredArrr = arr2.filter(country => country.length > 3);
 console.log(filteredArrr); // ["china", "saudia"]
 let filteredArr = arr2.filter(country => country.startsWith("s"));
 console.log(filteredArr); // ["saudia"]
+//reduce-Methods.
+// Sum all numbers in an array:
+let numbers = [1, 2, 3, 4, 5];
+let sum = numbers.reduce((acc, current) => acc + current, 0);
+console.log(sum); // 15
+let words = ["Hello", "World", "JavaScript"];
+let sentence = words.reduce((acc, current) => acc + " " + current, "");
+console.log(sentence); // "Hello World JavaScript"
 export {};
+//-----------------------------------------------------------------------
+//link https://github.com/Huma-Mohsin/Sir-zia-Repository-Practice-Session-Classes.git
+//git commands
+//git add .
+//git commit -m "Updated code"
+//git push origin

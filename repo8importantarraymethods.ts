@@ -83,3 +83,8 @@ console.log(sentence); // "Hello World JavaScript"
 
 
 //-----------------------------------------------------------------------
+//link https://github.com/Huma-Mohsin/Sir-zia-Repository-Practice-Session-Classes.git
+//git commands
+//git add .
+//git commit -m "Updated code"
+//git push origin

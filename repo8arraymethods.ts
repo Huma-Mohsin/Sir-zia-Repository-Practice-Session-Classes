@@ -23,18 +23,18 @@ console.log(num_array.lastIndexOf(30));//5
 //3-concat
 //console.log("concat : ",str_array.concat(num_array))//Argument of type 'number[]' is not assignable to parameter of type 'string | ConcatArray<string>'.
 
-console.log("concat : ",str_array.concat(other));//concat :  [ 'Saira', 'Sana', 'zameer', 'ayesha', 'daniyal', 'shoaib' ]
+console.log("concat : ",str_array.concat(other));//concat :  [ 'Saira', 'Sana', 'zameer', 'ayesha', 'daniyal', 'shoaib','yousuf,'kamran' ]
 
 //----------------------------------------------------------
 
 //4-join()  //this method joins all elements of the array into a string with a given operator.a. If an operator is not given, it joins elements with a comma(,).
 
-console.log(str_array.join());
+console.log("line 32",str_array.join());//Saira,Sana,zameer,ayesha
 console.log(str_array.join(" and "));//Saira and Sana and zameer and ayesha
 
 
 
-console.log(str_array.slice(0, -1).join(", ") + " and " + str_array[str_array.length - 1]);
+console.log("line 37",str_array.slice(0, -1).join() + " and " + str_array[str_array.length - 1]);//saira,sana,zameer and ayesha
 
 //str_array.slice(0, -1): This creates a new array with all the elements of str_array except the last one. The slice method returns a shallow copy of a portion of the array, and the -1 index means "one element from the end".or Takes all the elements in the array except the last one
 
@@ -45,8 +45,8 @@ console.log(str_array.slice(0, -1).join(", ") + " and " + str_array[str_array.le
 console.log(num_array.join());//5,10,15,20,25,30
 //----------------------------------------------------------------------------------
 
-//4--- push
-console.log(str_array.push("Rahila"));//returns the length of an array
+//4--- push---add at last of an array
+console.log(str_array.push("Rahila"));//returns the length of an array//-----5;
 console.log(str_array);//[ 'Saira', 'Sana', 'zameer', 'ayesha', 'Rahila' ]
 
 console.log(num_array.push(40))//returns length
@@ -57,7 +57,7 @@ console.log((num_array))
 //  ]
  
 //------------------------------------------
-//5-pop():-
+//5-pop():-  ----removes from last in an array
 console.log(str_array.pop());//shows popped element.------Rahila
 console.log(str_array);//shows remaining array after pop----[ 'Saira', 'Sana', 'zameer', 'ayesha' ]
 
@@ -66,17 +66,18 @@ console.log(num_array);
 //------------------------------------------------------------------
 
 //reverse()
-console.log(str_array.reverse());
+console.log(str_array.reverse());//
 console.log(num_array.reverse());//[ 5, 10, 15, 20, 25, 30 ] becomes [ 30, 25, 20, 15, 10, 5 ]
 //-----------------------------------------------------------------
 
-//shift()
+//shift() 
+console.log("74",str_array);//[ 'ayesha', 'zameer', 'Sana', 'Saira' ]
 console.log(str_array.shift());//shows removed element from first-----ayesha
-console.log(num_array.shift());//30
+console.log("line 75",num_array.shift());//30
 console.log(str_array); //shows updated array----[ 'zameer', 'Sana', 'Saira' ]
 //---------------------------------------------------------------------
 
-//unshift()
+//unshift()//add at first index
 console.log(str_array.unshift("zain"));//4
 console.log(str_array);//[ 'zain', 'zameer', 'Sana', 'Saira' ]
 console.log(num_array.unshift());//5
@@ -92,9 +93,14 @@ console.log(num_array);// [ 25, 20, 15, 10, 5 ]
 //---------------------------------------------------
 
 // slice()--returns new array, doesnot change in an original array.
-console.log(str_array.slice(0,3));//[ 'zain', 'zameer', 'Sana' ]
+console.log("96: ",str_array);//96:  [ 'zain', 'zameer', 'Sana', 'Saira' ]
+console.log(str_array.slice(0,3));//[ 'zain', 'zameer', 'Sana' ]--returns new array
 console.log(str_array); //[ 'zain', 'zameer', 'Sana', 'Saira' ]
+
+
+console.log(num_array); //[ 25, 20, 15, 10, 5 ]
 console.log(num_array.slice(2,4)); //[ 15, 10 ]
+
 console.log(num_array); //[ 25, 20, 15, 10, 5 ]
 
 // splice()
