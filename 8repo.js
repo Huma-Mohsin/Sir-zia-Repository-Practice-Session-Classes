@@ -16,3 +16,6 @@ function myfun(a, b, ...restparams) {
 }
 console.log(myfun(1, 5, 7, 8, 90, 11, 4));
 export {};
+//tospliced-method
+// let arrayy4=["ali","ahmed","sana"]
+// arrayy4.to
