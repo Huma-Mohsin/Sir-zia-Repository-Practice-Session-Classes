@@ -32,3 +32,4 @@ console.log(newarray3);//[
 let arr2 = ["USA", "Washington", "English"];
 let newarr3 = arr2.join(", ") + " are great countries";
 console.log(newarr3);//USA, Washington, English are great countries
+

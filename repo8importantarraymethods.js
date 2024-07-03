@@ -39,8 +39,8 @@ console.log(newarr3); // ["pak is a great country", "china is a great country", 
 //let arr2=["pak","china","saudia"];
 let filteredArrr = arr2.filter(country => country.length > 3); //A callback function is a function that is passed as an argument to another function, and is executed by that function at a later time.
 console.log(filteredArrr); // ["china", "saudia"]
-let filteredArr = arr2.filter(country => country.startsWith("y"));
-console.log("69-", filteredArr); // ["saudia"]or []
+let filteredArr = arr2.filter(country => country.startsWith("s"));
+console.log("69-", filteredArr); // ["saudia"]
 //reduce-Methods.
 // Sum all numbers in an array:
 let numbers = [1, 2, 3, 4, 5];
