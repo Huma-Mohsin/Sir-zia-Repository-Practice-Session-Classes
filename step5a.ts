@@ -1,10 +1,12 @@
+
 let teacher = {
     name: "Zeeshan",
-    experience: "10"
+    experience: "10",
 }
+//access property of an object
 
-console.log(teacher.name);
-console.log(teacher["experience"]);
+console.log(teacher.name);//Zeeshan
+console.log(teacher["experience"]);//10
 
 //---------------------------------------------------------------------------------------------------
 // Type Declaration
@@ -14,7 +16,8 @@ let student : {
     name: string,
     age: number
 }//data type---------------??? ""
-
+ 
+//let z:string;
 
 //values assigned
 student = {
@@ -22,8 +25,8 @@ student = {
     age: 30
 }
 
-console.log(student["name"]);
-console.log(student.age);
+console.log(student["name"]);//hira
+console.log(student.age);//30
 
         
 
@@ -34,13 +37,19 @@ console.log(student.age);
 
 //In JavaScript, we use objects to store and pass around data. An object is like a container that holds key-value pairs, like a name and age.
 
-//In TypeScript, we define the structure of these objects using object types. There are three ways to do this:
+//In TypeScript, we define the structure of these objects using object types. 
+
+//There are three ways to do this:
 
 //1. Anonymous object type: We define the object type directly where we use it, like this:
 
-function greet1(person: { name: string; age: number }) {
-  return "Hello " + person.name;
+
+function greet1(person: { name: string ,  age: number }) {
+  return "Hello " + person.name;//here we access object property.
 }
+//invoke
+console.log(greet1({ name: "Hira", age: 30 }));//Hello Hira
+
 
 //2. Interface: We define a named interface, like this:
 
@@ -52,6 +61,9 @@ interface Person1 {
 function greet2(person: Person1) {
   return "Hello " + person.name;
 }
+
+//invoke
+console.log(greet2({ name: "Hira", age: 30 }));
 
 //3. Type alias: We define a named type alias, like this:
 

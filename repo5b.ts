@@ -1,4 +1,4 @@
-// anonymous
+// anonymous object type
 
 let teacher : {name: string, exp: number} = {
     name: "Zeeshan",
@@ -78,7 +78,7 @@ type Employee1 = Person & { department: string }; //{ department: string } is a 
 //- Creating a new type:
 
 interface Person { name: string; age: number }
-
+interface Employee { department:string}
 //- Supporting properties:
 
 interface Address { street: string; city: string }
@@ -89,7 +89,7 @@ interface Calculator { add(a: number, b: number): number }
 
 //- Inheritance (using extends):
 
-interface Employee extends Person { department: string }
+interface Employee extends Person //{ department: string }
 
 // Note that the syntax is slightly different between Type Aliases and Interfaces, but they both achieve similar results.
 
@@ -115,15 +115,15 @@ sayHello(): void;
 
 //Type Aliases:
 
-// type Person3 = {
-// name: string;
-// }
+ type Person3 = {
+ name: string;
+ }
 
 // // Trying to add new properties or methods later will result in an error
-// type Person3 = {
-// age: number; // Error: Duplicate identifier 'Person'.
+//  type Person3 = {
+//  age: number; // Error: Duplicate identifier 'Person'.
 // sayHello(): void; // Error: Duplicate identifier 'Person'.
-// }
+//  }
 
 //This is not allowed because type aliases are "closed" and cannot be re-opened to add new properties or methods.
 

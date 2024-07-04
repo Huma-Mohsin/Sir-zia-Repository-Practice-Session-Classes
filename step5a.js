@@ -1,31 +1,38 @@
 let teacher = {
     name: "Zeeshan",
-    experience: "10"
+    experience: "10",
 };
-console.log(teacher.name);
-console.log(teacher["experience"]);
+//access property of an object
+console.log(teacher.name); //Zeeshan
+console.log(teacher["experience"]); //10
 //---------------------------------------------------------------------------------------------------
 // Type Declaration
 //: This is the type annotation, which defines the shape of the object that the student variable can hold.
 let student; //data type---------------??? ""
+//let z:string;
 //values assigned
 student = {
     name: "Hira",
     age: 30
 };
-console.log(student["name"]);
-console.log(student.age);
+console.log(student["name"]); //hira
+console.log(student.age); //30
 //--------------------------------------------------------------------------------------------------------
 //Read me---------------------Object Types
 //In JavaScript, we use objects to store and pass around data. An object is like a container that holds key-value pairs, like a name and age.
-//In TypeScript, we define the structure of these objects using object types. There are three ways to do this:
+//In TypeScript, we define the structure of these objects using object types. 
+//There are three ways to do this:
 //1. Anonymous object type: We define the object type directly where we use it, like this:
 function greet1(person) {
-    return "Hello " + person.name;
+    return "Hello " + person.name; //here we access object property.
 }
+//invoke
+console.log(greet1({ name: "Hira", age: 30 })); //Hello Hira
 function greet2(person) {
     return "Hello " + person.name;
 }
+//invoke
+console.log(greet2({ name: "Hira", age: 30 }));
 function greet(person) {
     return "Hello " + person.name;
 }
