@@ -1,4 +1,4 @@
-// anonymous
+// anonymous object type
 let teacher = {
     name: "Zeeshan",
     exp: 10
@@ -13,16 +13,11 @@ let storeManager = {
     name: "Bilal"
 };
 export {};
-//This is allowed because interfaces are "open" and can be extended later.
-//Type Aliases:
-// type Person3 = {
-// name: string;
-// }
 // // Trying to add new properties or methods later will result in an error
-// type Person3 = {
-// age: number; // Error: Duplicate identifier 'Person'.
+//  type Person3 = {
+//  age: number; // Error: Duplicate identifier 'Person'.
 // sayHello(): void; // Error: Duplicate identifier 'Person'.
-// }
+//  }
 //This is not allowed because type aliases are "closed" and cannot be re-opened to add new properties or methods.
 ///Think of interfaces like a dynamic blueprint that can be modified later, while type aliases are like a snapshot of a type that cannot be changed once defined.
 //-------------------------------------------------------------------------------------------

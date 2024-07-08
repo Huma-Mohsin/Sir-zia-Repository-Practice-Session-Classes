@@ -1,8 +1,11 @@
-//Repo Code:-
+//Repo Code:-  //concept of fresh objects and stale objects
 let ball = { diameter: 10 }; //creates a value of type Ball with a diameter of 10.
-let sphere = { diameter: 20 };
-sphere = ball; // assigns the value of type Ball to the variable sphere of type Sphere. This is allowed because they have the same structure (both have a diameter property).
+let sphere = { diameter: 20, color: "red" };
+//sphere = ball;  // assigns the value of type Ball to the variable sphere of type Sphere. This is allowed because they have the same structure (both have a diameter property).
 ball = sphere; //same as above
+console.log(ball);
+//ball={ diameter: 10,radius:2}//error
+ball = { diameter: 10 }; //
 let tube = { diameter: 12, length: 3 }; // create a value tube of type Tube 
 tube = ball; //Error-Property 'length' is missing in type 'Ball' but required in type 'Tube'
 ball = tube; //assign tube to ball because all the members of Ball (diameter) are present in Tube
@@ -34,10 +37,14 @@ ball = tube; //assign tube to ball because all the members of Ball (diameter) ar
 //never captured in variables, static knowledge of the excess or misspelled properties should not be silently lost. 
 //means:
 //  TypeScript enforces strict rules to ensure that the object literal's properties match the target type, preventing errors and unexpected behavior.
-let myType = { name: "Zia", id: 1 }; //"Fresh object literal" means an object created directly in the code, like { name: "Zia", id: 1 }.
+// let myType: {
+//   name: string;
+//   id: number;
+//   //age?:number
+// } = { name: "Zia", id: 1  };//"Fresh object literal" means an object created directly in the code, like { name: "Zia", id: 1 }.
 //// - "Target type"refers to the name of the variable or parameter being assigned to, like myType.
 //Case 1
-myType = { id: 2, name: "Tom" };
+myType = { id: 2, name: "Tom" }; //reassigned myType
 // In Case 1, myType has a specific type with properties name and id. When you try to assign a new object literal { id: 2, name: "Tom" } to myType, it's allowed because the properties match the target type.
 // Here's a breakdown:
 // - "Fresh object literal" means an object created directly in the code, like { name: "Zia", id: 1 }.
@@ -61,13 +68,14 @@ var x; //Note now 'x' can have any name, just that the property should be of typ
 // - The string type in the index signature means that the additional properties must have string keys (e.g., "fullname").
 // - The any type in the index signature means that the values of these additional properties can be of any type.
 // By including this index signature, you're explicitly telling TypeScript that objects of type x can have extra properties with string keys, and their values can be of any type.
-x = { id: 1, fullname: "Zia" }; // Ok, `fullname` matched by index signature
+x = { id: 1, 123: "Karachi" }; // Ok, `fullname` matched by index signature
 // In the assignment x = { id: 1, fullname: "Zia" };, the property fullname is considered an excess property, but it's allowed because of the index signature. The type system checks that the key "fullname" is a string, and the value "Zia" is of type any, which matches the index signature.
 //----------------------------------------------------------------------------------------------------------
 //Case 3
 myType = { id: 2, name: "Tom", age: 22 }; //Case 3: Error, excess property
 //=================================================
 //Case when STALE object literal are assigned to a variable 
+let myType = { name: "Zia", id: 1 };
 let myType2 = { id: 2, name: "Tom" };
 //Case 1
 myType = myType2; //Case 1: can only assign a type which has the the same properties, rule same for fresh and stale object
@@ -77,65 +85,49 @@ myType = myType3; //Case 2: Error, renamed or missing property, rule same for st
 //-----------------------------------------------------------------------------------------------------
 //Case 2b
 //A type can include an index signature to explicitly indicate that excess properties are permitted in with fresh objects:
-var x; //Note now 'x' can have any name, just that the property should be of type string
-var y = { id: 1, fullname: "Zia" };
-x = y; // Ok, `fullname` matched by index signature
+//index signature=[x: string]: any
+var x1;
+//Note now 'x' can have any name, just that the property should be of type string
+x1 = { id: 34, firstName: "Khan", indexSignaturevalue: "Khalid", };
+var y = { id: 2, firstName: "Zia" };
+x1 = y; // Ok, `fullname` matched by index signature
+y = x1;
+//-------------------------------------------------
+//let myType = { name: "Zia", id: 1  };
 var myType4 = { id: 2, name: "Tom", age: 22 };
 //Case 3
 myType = myType4; //Case 3: Ok, excess property allowed in case of stale object which is different from fresh object
-export {};
 //--------------------------------------------------------------------------------------------------------------
-/*
-var x: { foo: number }; //the type of x is defined as an object with a single property foo of type number.
-
-x = { foo: 1, baz: 2 };  // Error, excess property `baz`
-
+//declaration -fresh object's mechanism:
+var x2; //the type of x is defined as an object with a single property foo of type number.
+//initialization
+x2 = { foo: 1, baz: 2 }; // Error, excess property `baz`
 //When assigning an object literal to x, TypeScript checks that the object conforms to the defined type. Since the object literal has an extra property baz that's not defined in the type, TypeScript throws an error.
-
-
 //---------------------------------------------------------------------------------------------------------
-var y: { foo: number, bar?: number };
-y = { foo: 1, baz: 2 };  // Error, excess or misspelled property `baz`
-
-
-Similarly, the type of y is defined as an object with a required property foo of type number and an optional property bar of type number. When assigning an object literal to y, TypeScript checks that the object conforms to the defined type. Since the object literal has an extra property baz that's not defined in the type, TypeScript throws an error.
-
+var y1;
+y1 = { foo: 1, baz: 2 }; // Error, excess or misspelled property `baz`
+// Similarly, the type of y is defined as an object with a required property foo of type number and an optional property bar of type number. When assigning an object literal to y, TypeScript checks that the object conforms to the defined type. Since the object literal has an extra property baz that's not defined in the type, TypeScript throws an error.
 //_____________________________________________________________________________________________________
-
-var a: { foo: number };
-var a1 = { foo: 1, baz: 2 };
-a = a1;//No Error
-
-
-Here, a new variable a1 is defined with an object literal that has an extra property baz. However, when assigning a1 to a, TypeScript doesn't throw an error because the type of a is not explicitly defined as "exact" (i.e., no excess properties allowed). The assignment is allowed, and a will have the shape of the assigned object, including the extra property baz.
-
-
+var a4 = { foo: 7, baz: 5 };
+//data structure
+var a = { foo: 2, baz: 4 };
+//object
+// 
+a = a4; //No Error---//atleast one variable containing an object  must be initialize before assigning.
+a4 = a;
+// Here, a new variable a1 is defined with an object literal that has an extra property baz. However, when assigning a1 to a, TypeScript doesn't throw an error because the type of a is not explicitly defined as "exact" (i.e., no excess properties allowed). The assignment is allowed, and a will have the shape of the assigned object, including the extra property baz.
 //-----------------------------------------------------------------------------------------------
-var z: { foo: number, bar?: number };//variable z
-
-This line defines a variable z with a type that has:
-* A required property foo of type number
-* An optional property bar of type number (the ? makes it optional)
-
-var z1 = { foo: 1, baz: 2 };//object z1
-
-
-This line defines a new variable z1 with an object literal that has:
-* A property foo with value 1
-* A property baz with value 2 ( notice this property is not defined in the type of z )
-
-z = z1;//No Error
-
-- When we assign z1 to z (with the statement z = z1;), TypeScript doesn't throw an error.
-
-- This is because TypeScript only checks if the shape of z1 (its properties) matches the shape of z. Since z1 has a foo property (which is required for z) and an extra property baz (which is not defined for z), the assignment is allowed.
-- After the assignment, z will have the properties foo and baz, even though its original type definition only specified foo and bar?.
-
+var z; //variable z
+// This line defines a variable z with a type that has:
+// * A required property foo of type number
+// * An optional property bar of type number (the ? makes it optional)
+var z1 = { foo: 1, baz: 2 }; //object z1
+// This line defines a new variable z1 with an object literal that has:
+// * A property foo with value 1
+// * A property baz with value 2 ( notice this property is not defined in the type of z )
+z = z1; //No Error
+export {};
+// - When we assign z1 to z (with the statement z = z1;), TypeScript doesn't throw an error.
+// - This is because TypeScript only checks if the shape of z1 (its properties) matches the shape of z. Since z1 has a foo property (which is required for z) and an extra property baz (which is not defined for z), the assignment is allowed.
+// - After the assignment, z will have the properties foo and baz, even though its original type definition only specified foo and bar?.
 //---------------------------------------------------------------------------------------------
-
-
-
-
-  
-  
- 

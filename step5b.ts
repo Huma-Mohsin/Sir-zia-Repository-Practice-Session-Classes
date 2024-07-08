@@ -102,7 +102,7 @@ interface Employee extends Person //{ department: string }
 //Interfaces:
 
 interface Person2 {
-name: string;
+name: string,
 }
 
 // Later, we can add new properties or methods to the Person interface

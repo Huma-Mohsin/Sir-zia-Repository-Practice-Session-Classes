@@ -28,7 +28,7 @@ function greet(person) {
 ;
 // Example usage
 const user = {
-    name: "Alice",
+    "name": 'Alice',
     age: 25,
     address: {
         street: "123 Main St",
@@ -36,5 +36,14 @@ const user = {
         postalCode: "12345"
     }
 };
-console.log(user);
+console.log(user); // output  {
 export {};
+//     name: 'Alice',
+//     age: 25,
+//     address: { street: '123 Main St', city: 'Springfield', postalCode: '12345' }        
+//   }
+//----------------------------------------------------
+//difference b/w json and js object
+//Ans - in json we donot pass methods or functions.
+//Ans - json must  has keys and values  in double quote always. 
+//example tsconfig.json, package.json etc.
