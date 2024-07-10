@@ -31,37 +31,37 @@ interface Student {
     
     //When we try to assign a value 20 to feauA typescript compiler raises an error as the intersection type is of the type ‘string & number’. If we try to assign a string to feauA, the error is not raised as to when intersected the type is String.
      
-   /* interface A { 
-        feauA: string; 
-        feauB: string; 
-        } 
+   // interface A { 
+   //      feauA: string ;
+   //      feauB: string; 
+   //      } 
         
-        interface B { 
-        feauA: number; 
-        feauB: string; 
-        } 
+   //      interface B { 
+   //      feauA: number; 
+   //      feauB: string; 
+   //      } 
         
-        type AB = A & B; 
-        
-        
-        let obj11: AB = { feauA: 'd', feauB: 'a' };
-        let obj12: AB = { feauA: 20, feauB: 'b' };
+   //      type AB = A & B; 
         
         
-        // Error, Type '20' is not assignable 
-        // to type 'string & number' 
-        obj11.feauA = 20;      
-        console.log(obj11.feauA); //error TS2322: Type 'number' is not assignable to type 'never'.
-        //obj11.feauA = 20; 
-        // Error, Type '20' is not assignable
-        // to type 'string & number'
+   //      let obj11: AB ={feauA:"w", feauB:"a"};
+   //      let obj12: AB ={feauA:"b",feauB:"c"}
         
-        obj12.feauB = "c"; 
-        console.log(obj12.feauB); 
+        
+   //      // Error, Type '20' is not assignable 
+   //      // to type 'string & number' 
+   //      obj11.feauA = 20;      
+   //      console.log(obj11.feauA); //error TS2322: Type 'number' is not assignable to type 'never'.
+   //      //obj11.feauA = 20; 
+   //      // Error, Type '20' is not assignable
+   //      // to type 'string & number'
+        
+   //      obj12.feauB = "c"; 
+   //      console.log(obj12.feauB); 
         
         //-------------------------------------------------------------------------------
 
-        */
+        
 
 
         //Example 3: Intersection types are commutative and associative: The order of the intersection doesn’t matter when we intersect two or more types. Even if the order of intersection changes the type of the intersected objects are the same, the ‘typeof’ operator is used to check that, the properties of the intersected objects are also the same. 
@@ -95,7 +95,12 @@ interface Student {
         obj_4.prop1 = "length"; 
         console.log(obj_4.prop1); //length
         
+console.log(obj_3);//{ prop1: '', prop2: '', prop3: 'height' }
+
+console.log(obj_4); //{ prop1: 'length', prop2: '', prop3: '' }
+
         console.log(obj_3 == obj_4); // false 
+        
         console.log(typeof obj_3 == typeof obj_4); // true 
         console.log(typeof obj_1 == typeof obj_2); // true
         

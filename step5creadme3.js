@@ -6,6 +6,7 @@ let person = {
     }
 };
 let bankAccount = {
+    name: "ali",
     accountNo: 100,
     someFn: function () {
         console.log("Please deposit some money");

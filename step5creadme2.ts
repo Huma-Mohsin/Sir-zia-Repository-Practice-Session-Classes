@@ -3,32 +3,16 @@
 
 // consider a simple example to illustrate the difference between nominal typing and structural typing:
 
-// Nominal Typing
+// //Nominal Typing
+// In the nominal typing example, the issue is that the interfaces Person and Employee are considered distinct types, even though they have the same properties. This is because TypeScript uses nominal typing, which means that the name of the interface matters, not just its structure.
 
-// class Person {
-//   name: string;
-//   age: number;
-// }
+// Here's an example of how nominal typing works:
 
-// class Employee {
-//   name: string;
-//   age: number;
-// }
-
-// let person: Person = { name: 'John', age: 30 };
-// let employee: Employee = { name: 'Jane', age: 25 };
-
-// Error: Type 'Employee' is not assignable to type 'Person'.
-//person = employee;
-
-//In nominal typing, the types Person and Employee are considered different, even though they have the same shape (same properties). This is because they have different names, and the type system checks compatibility based on the names.
-//--------------------------------------------------------------------------
-
-//Structural Typing
 
 // interface Person {
 //   name: string;
 //   age: number;
+//   city:string;
 // }
 
 // interface Employee {
@@ -36,11 +20,35 @@
 //   age: number;
 // }
 
-// let person: Person = { name: 'John', age: 30 };
-// let employee: Employee = { name: 'Jane', age: 25 };
+// let person: Person = { name: 'John', age: 30 ,city:"karachi"};//fresh object literal
+// let employee: Employee = { name: 'Jane', age: 25 };//
 
-// // Okay: Types are compatible based on shape.
-// person = employee;
+
+// //stale object
+
+// person = employee; 
+// employee = person; 
+
+//In nominal typing, the types Person and Employee are considered different, even though they have the same shape (same properties). This is because they have different names, and the type system checks compatibility based on the names.
+//--------------------------------------------------------------------------
+
+//Structural Typing
+
+interface Person {
+  name: string;
+  age: number;
+}
+
+interface Employee {
+  name: string;
+  age: number;
+}
+
+let person: Person = { name: 'John', age: 30 };
+let employee: Employee = { name: 'Jane', age: 25 };
+
+// Okay: Types are compatible based on shape.
+person = employee;
 
 // In structural typing, the types Person and Employee are considered compatible because they have the same shape (same properties), regardless of their names.
 //-------------------------------------------------------------------------
@@ -51,12 +59,12 @@
 
 // TypeScript does not allow Duck Typing. But JavaScript does.
 
-// let person = { name: 'John', age: 30 };//This variable is assigned an object with a name property and an age property. Its type is inferred to be an object with these properties
+let person1 = { name: 'John', age: 30 };//This variable is assigned an object with a name property and an age property. Its type is inferred to be an object with these properties
 
-// let employee = { name: 'Jane', age: 25 };
+let employee1 = { name: 'Jane', age: 25 };
 
-// // Okay: Types are compatible based on usage.
-// person = employee;
+// Okay: Types are compatible based on usage.
+person1 = employee1;
 
 // In duck typing, the types are considered compatible based on their usage, without explicit type declarations. This is commonly found in dynamic languages like JavaScript.
 

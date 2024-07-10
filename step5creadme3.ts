@@ -6,6 +6,7 @@ interface Person {
   }
    
   interface BankAccount {
+    name:string,
     accountNo:number,
     someFn: () => void
   }
@@ -19,6 +20,7 @@ interface Person {
   }
    
   let bankAccount:BankAccount = {
+       name:"ali",
       accountNo:100,
       someFn:function() {
           console.log("Please deposit some money")
