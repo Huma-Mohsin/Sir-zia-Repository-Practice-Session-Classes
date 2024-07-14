@@ -1,6 +1,5 @@
 // //Union Types
 // TypeScript’s type system allows you to build new types out of existing ones using a large variety of operators.
-var _a;
 function printId(id) {
     console.log("Your ID is: " + id);
 }
@@ -109,7 +108,7 @@ if (typeof x4 === 'string') {
 }
 //1. Optional Chaining:
 let x6 = {}; // x6 is an object with an optional property foo of type string.
-(_a = x6.foo) === null || _a === void 0 ? void 0 : _a.toUpperCase(); // x.foo is now narrowed to string | undefined
+x6.foo?.toUpperCase(); // x.foo is now narrowed to string | undefined
 //Optional Chaining
 // let x6: { foo?: string } = {};
 // - The ? symbol indicates that foo may be absent (i.e., undefined).
@@ -120,7 +119,7 @@ let x6 = {}; // x6 is an object with an optional property foo of type string.
 // - Therefore, the type of x6.foo is narrowed to string | undefined.
 // 1. Nullish Coalescing:
 let x8 = "hello";
-const y1 = x8 !== null && x8 !== void 0 ? x8 : 'default'; // y is now narrowed to string
+const y1 = x8 ?? 'default'; // y is now narrowed to string
 console.log("line 152", y1);
 //  The ?? operator is called nullish coalescing. It returns the first operand if it is not null or undefined, and the second operand if it is null or undefined.
 // - If x8 is not null or undefined (i.e., it's a string), y1 will be assigned the value of x8.

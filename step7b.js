@@ -38,22 +38,6 @@ var Colors;
 })(Colors || (Colors = {}));
 console.log(z);
 console.log(Enum1.B);
-//object with enum-like properties
-const ODirection = {
-    Up: 0,
-    Down: 1,
-    Left: 2,
-    Right: 3,
-};
-0 /* EDirection.Up */;
-//(enum member) EDirection.Up = 0
-ODirection.Up;
-//(property) Up: 0
-// Using the enum as a parameter
-function walk(dir) {
-}
-//The code defines a type alias Direction that represents the union of all the enum values or property values of ODirection. It's a way to extract the values of an enum or an object with enum-like properties into a new type alias, allowing you to use that type alias to represent a value that can be any of the enum values.
-function run(dir) { }
-console.log(walk(2 /* EDirection.Left */));
-console.log(run(ODirection.Right));
 export {};
+//-----------------------------------------------------------------------------------
+//In modern TypeScript, you may not need an enum when an object with as const 

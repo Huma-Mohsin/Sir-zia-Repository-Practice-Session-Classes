@@ -144,6 +144,6 @@ if (yourName) {
     // 1. if (yourName) { yourName.toUpperCase(); // Ok: string }
     // The if statement checks if yourName is truthy (i.e., not undefined or null). If it is, the code inside the block will be executed. Since yourName is guaranteed to be a string inside this block (due to the type guard), calling toUpperCase() is okay.
 }
-yourName === null || yourName === void 0 ? void 0 : yourName.toUpperCase(); //OK
+yourName?.toUpperCase(); //OK
 let data; // as a nick name for broad union type
 export {};

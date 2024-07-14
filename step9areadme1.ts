@@ -91,7 +91,6 @@ function greeterier(fn: GreetFunction1) {
 
 // - The syntax for this is slightly different from a regular function type expression. Instead of using =>, we use :.
 
-
 type DescribableFunction = {
   description: string;
   (someArg: number): boolean;
@@ -123,29 +122,37 @@ doSomething(myFunc1);
 //---------------------------------------------------------------------------------------
 
 //Construct Signatures:-
+//____________________
 
-// - In JavaScript, functions can be called with the new operator to create a new object.
-// - In TypeScript, these functions are called "constructors".
-// - You can define a construct signature by adding the new keyword before a call signature.
-// - Example:
-type SomeConstructor = { new (s: string): SomeObject };
-// //- a function that can be called with the new operator.
-// - The function takes a string parameter s.
-// - The function returns an object of type SomeObject.
+//Construct signatures are a way to define the shape of a constructor function's arguments and return type in TypeScript.
 
+//type ConstructorType = {
+//   new (arg1: Type1, arg2: Type2, ...): ReturnType;
+// };
+
+// An interface SomeObject with a name property of type string.
 interface SomeObject {
   name: string;
 }
 
-function fn(ctor: SomeConstructor) {
+//A function fn that takes a constructor function ctor as an argument, which must return an object, of type SomeObject when called with the new keyword.
+function fn(ctor: { new(s: string): SomeObject }) {
   return new ctor("hello");
- }
-// //-  it calls the ctor function with the string argument "hello" using the new operator.
-// - The result is an object of type SomeObject, which is returned by the fn function.
+}
 
-// - You can also combine call and construct signatures in the same type.
-// - Example: 
-interface CallOrConstruct { (n?: number): string; new (s: string): Date; }
-// - This allows an object to be called with or without the new operator, like JavaScript's Date object.
+//A class MyConstructor that implements the SomeObject interface, with a name property and a constructor function that initializes it.
 
-// By defining a construct signature, you can specify the type of object that will be created when a function is called with the new operator. This helps with type safety and better code organization.
+
+//  the class must conform to the structure defined by the interface
+class MyConstructor implements SomeObject {
+  constructor(public name: string) {}//constructor is a special method in a class that is called when an object is created.
+  toString() {
+    return `{ name: '${this.name}' }`;//- This method is a built-in method in JavaScript that returns a string representation of an object.
+    //- The method is overridden in this class to provide a custom string representation.
+  }
+}
+
+//A call to fn with MyConstructor as an argument, which creates a new instance of MyConstructor with the name "hello" and logs it to the console.
+const result = fn(MyConstructor);
+console.log(result); // Output:  SomeClass { name: 'hello' }
+

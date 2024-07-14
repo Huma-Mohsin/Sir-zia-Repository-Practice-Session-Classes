@@ -29,6 +29,8 @@ person1 = employee1;
 //code in the document.
 //But if we make age property private in both classes then they become incompatible. The following code throws an error.
 class Dog {
+    name;
+    age;
     constructor(name, age) {
         this.name = name;
         this.age = age;
@@ -36,6 +38,8 @@ class Dog {
 }
 //-------------------------------------------------
 class Cat {
+    name;
+    age;
     constructor(name, age) {
         this.name = name;
         this.age = age;
