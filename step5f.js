@@ -1,18 +1,20 @@
 // Any
 //Any: A type that represents any value, including null and undefined.The any type disables type checking, allowing you to assign any value to a variable.
-let myval;
+let myval; // here we ddeclare a variable.
+//values assigning here
 myval = true; // OK
 myval = 42; // OK
 myval = "hey!"; // OK
 myval = []; // OK
 myval = {}; // OK
-myval = Math.random; // OK
+myval = Math.random; // OK -- assigned class here
 myval = null; // OK
 myval = undefined; // OK
 myval = () => { console.log('Hey again!'); }; // OK
 //Summary-In the example, myval is declared with the type any, and various values are assigned to it without any errors.
 //-------------------------------------------------------------------------------------
-//Unknown
+//Unknown:
+// a subtype is a type that inherits all the properties and behaviors of its supertype, and may also have additional specific properties or restrictions.
 //The unknown type is a type that represents any value, similar to any. However, unlike any, it is not a subtype of every other type, and it does not disable type checking. Instead, it requires an explicit type assertion or a narrowing operation to assign a value to a variable of a different type.
 let value;
 value = true; // OK
@@ -31,7 +33,7 @@ value = () => { console.log('Hey again!'); }; // OK
 // - Disables type checking for a specific value or variable.
 // - Allows assigning any value to a variable of type any.
 // - essentially turns off type checking for that specific value or variable.
-// unknown:
+// unknown:-
 // - Represents a value that could be anything, including null and undefined.
 // - Requires explicit type assertions or narrowing operations to assign a value to a variable of a different type.
 // - Does not disable type checking; instead, it forces you to explicitly verify the type of the value before using it.
@@ -40,9 +42,8 @@ value = () => { console.log('Hey again!'); }; // OK
 //- any is a "type escape hatch" that disables type checking, while
 //- unknown is a "type safeguard" that requires explicit type verification.
 //------------------------------------------------------------------------------------------------
-// Assigning a value of type unknown to variables of other types
-// a subtype is a type that inherits all the properties and behaviors of its supertype, and may also have additional specific properties or restrictions.
-let val;
+// Assigning a value of type unknown to variables of other types.to check data type compatiblity
+let val; //parent variable or main variable.
 const val1 = val; // OK-- Assigning a value of type unknown to a variable of type unknown is allowed.
 const val2 = val; // OK--Assigning a value of type unknown to a variable of type any is allowed, because any is a supertype of unknown.
 const val3 = val; // Will throw error---Assigning a value of type unknown to a variable of type boolean will throw a type error, because unknown is not a subtype of boolean.
@@ -96,7 +97,10 @@ function fail() {
 function infiniteLoop() {
     while (true) { }
 }
-export {};
 // //Never Type
 // The never type represents the type of values that never occur. For instance, never is the return type for a function expression or an arrow function expression that always throws an exception or one that never returns. Variables also acquire the type never when narrowed by any type guards that can never be true.
 // The never type is a subtype of, and assignable to, every type; however, no type is a subtype of, or assignable to, never (except never itself). Even any isn’t assignable to never.
+// let value6:never;
+// value6=123;
+let arr = [1, 2, 3, [1, 2, 3, [1, 2, 3]]];
+export {};

@@ -16,8 +16,8 @@ obj_3.prop3 = "height";
 console.log(obj_3.prop3); //height
 obj_4.prop1 = "length";
 console.log(obj_4.prop1); //length
-console.log(obj_3);
-console.log(obj_4);
+console.log(obj_3); //{ prop1: '', prop2: '', prop3: 'height' }
+console.log(obj_4); //{ prop1: 'length', prop2: '', prop3: '' }
 console.log(obj_3 == obj_4); // false 
 console.log(typeof obj_3 == typeof obj_4); // true 
 console.log(typeof obj_1 == typeof obj_2); // true
