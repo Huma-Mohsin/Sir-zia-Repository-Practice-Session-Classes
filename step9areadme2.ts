@@ -1,18 +1,18 @@
 // Generics in TypeScript
 
-
 // Generics help us write functions that work with multiple types, while keeping type safety.
 
-//We add a "type parameter" (like <Type>) to the function signature. This creates a link between the input and output types.
+//We add a "type parameter" (like <Type>) to the function signature. This creates a link between the input and output types.<>
 
-function firstElement<Type>(arr: Type[]): Type | undefined {
-     return arr[0]; 
+function firstElement<T>(arr: T[],x:T): T | undefined {
+     return arr[0]; //value at o index
     }
-console.log(firstElement([1,2,3,4]));//1
-console.log(firstElement(["a","b","c"]))//0
-console.log(firstElement([]));//undefined
-console.log(firstElement([true,false]))//true
-console.log(firstElement([{ name: "sara", age: 23 },{ name: "sana", age: 28 }]));//{ name: 'sara', age: 23 }
+    
+console.log(firstElement([1,2,3,4],5));//1
+console.log(firstElement(["a","b","c"],"d"))//a
+console.log(firstElement([],1));//undefined
+console.log(firstElement([true,false],true))//true
+console.log(firstElement([{ name: "sara", age: 23 },{ name: "sana", age: 28 }],{}));//{ name: 'sara', age: 23 }
 
 // Benefit
 
@@ -28,15 +28,15 @@ function map<Input, Output>(arr: Input[], func: (arg: Input) => Output): Output[
 
 const result1 = map([1, 2, 3, 4, 5], (elem) => elem*2);
 console.log(typeof result1);//typeof result1 returns "object" because the result is an array, and arrays are objects in JavaScript.
-console.log(result1);
+console.log(result1);//[ 2, 4, 6, 8, 10 ]
    
 const  result2=map(["ali","amna"],(elem)=>elem.toUpperCase());
-console.log(typeof result2)
-console.log(result2);
+console.log(typeof result2)//object
+console.log(result2);//[ 'ALI', 'AMNA' ]
  
-//TypeScript could infer both the type of the Input type parameter (from the given string array), as well as the Output type parameter based on the return value of the function expression (number).
+//TypeScript could infer both the type of the Input type parameter (from the given  array), as well as the Output type parameter based on the return value of the function expression (number).
 
-//Constraints
+//Constraints-limitations
 
 /*
  a function called longest that compares two values and returns the longer one.
@@ -72,6 +72,10 @@ function longest<Type extends { length: number }>(a: Type, b: Type) {
   // longerString is of type 'alice' | 'bob'
   const longerString = longest("alice", "bob");//alice
   console.log(longerString);
+
+  // Error! Numbers don't have a 'length' property
+  const notOK = longest(10, 100);//Argument of type 'number' is not assignable to parameter of type '{ length: number; }'.
+
 //-----------------------------------------------------------------
   function longestobj<Type extends { [key: string]: any }>(a: Type, b: Type) {
     if (Object.keys(a).length >= Object.keys(b).length) //the function uses the Object.keys() method to get an array of the object's properties, and then compares the length of those arrays to determine which object has more properties.
@@ -88,9 +92,7 @@ function longest<Type extends { length: number }>(a: Type, b: Type) {
   //working with constraints
 
   
-  // Error! Numbers don't have a 'length' property
-  const notOK = longest(10, 100);//Argument of type 'number' is not assignable to parameter of type '{ length: number; }'.
-
+  
   //Limitations :-
 
   //Specifying Type Arguments:

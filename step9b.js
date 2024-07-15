@@ -13,7 +13,7 @@ function buildName(firstName, lastName) {
 }
 let result1 = buildName("Bob"); //ok
 let result2 = buildName("Bob", "Adams", "Sr."); //error, too many parameters
-var result3 = buildName("Bob", "Adams"); //also ok
+var result3 = buildName("Bob", "Adams"); //also ok -Bob adams
 //anonymous function type with optional parameters
 //FUNCTION TYPE EXPRESSION
 var buildName1 = function (firstName, lastName) {
@@ -36,7 +36,7 @@ console.log(multiply(2, 3, 4));
 console.log(multiply(2, 3));
 //Note that The optional parameters must appear after the required parameters or at the end  in the parameter list 
 //if we do , 
-function multiply(a, b, c) {
+function multiply1(a, b, c) {
     if (typeof c !== 'undefined') {
         return a * b * c;
     }
@@ -44,5 +44,5 @@ function multiply(a, b, c) {
 }
 export {};
 //Summary
-// Use the parameter?: type syntax to make a parameter optional.
+// Use the (parameter?: type) syntax to make a parameter optional.
 // Use the expression typeof(parameter) !== 'undefined' to check if the parameter has been initialized.

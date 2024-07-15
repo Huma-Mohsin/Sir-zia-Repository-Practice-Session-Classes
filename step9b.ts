@@ -19,7 +19,7 @@ function buildName(firstName: string, lastName?: string) : string {
 
 let result1 = buildName("Bob");  //ok
 let result2 = buildName("Bob", "Adams", "Sr.");  //error, too many parameters
-var result3 = buildName("Bob", "Adams");  //also ok
+var result3 = buildName("Bob", "Adams");  //also ok -Bob adams
 
 
 
@@ -58,7 +58,7 @@ console.log(multiply(2,3))
     
 //if we do , 
 
-function multiply(a: number, b?: number, c: number): number {
+function multiply1(a: number, b?: number, c: number): number {
 
     if (typeof c !== 'undefined') {
         return a * b * c;
@@ -68,6 +68,6 @@ function multiply(a: number, b?: number, c: number): number {
 
  //Summary
 
-// Use the parameter?: type syntax to make a parameter optional.
+// Use the (parameter?: type) syntax to make a parameter optional.
 
 // Use the expression typeof(parameter) !== 'undefined' to check if the parameter has been initialized.
